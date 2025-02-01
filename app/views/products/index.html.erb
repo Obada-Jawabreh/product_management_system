@@ -4,39 +4,43 @@
 
 <h1 class="title is-2 has-text-centered mb-6">Products</h1>
 
-<div id="products" class="columns is-multiline is-centered">
-  <% @products.each do |product| %>
-    <div class="column is-one-third">
-      <div class="card shadow-lg">
-        <div class="card-content">
-          <div class="media">
-            <div class="media-content has-text-centered">
-              <p class="title is-4 mb-3"><%= product.name %></p>
+<% if @products.empty? %>
+  <p class="has-text-centered">No Products Found</p>
+<% else %>
+  <div id="products" class="columns is-multiline is-centered">
+    <% @products.each do |product| %>
+      <div class="column is-one-third">
+        <div class="card shadow-lg">
+          <div class="card-content">
+            <div class="media">
+              <div class="media-content has-text-centered">
+                <p class="title is-4 mb-3"><%= product.name %></p>
 
-              <% if product.images.attached? %>
-                <div class="image is-4by3 mb-3">
-                  <%= image_tag product.images.first, class: "is-rounded", style: "max-height: 200px; object-fit: cover;" %>
-                </div>
-              <% else %>
-                <p>No image available.</p>
-              <% end %>
+                <% if product.images.attached? %>
+                  <div class="image is-4by3 mb-3">
+                    <%= image_tag product.images.first, class: "is-rounded", style: "max-height: 200px; object-fit: cover;" %>
+                  </div>
+                <% else %>
+                  <p>No image available.</p>
+                <% end %>
 
-              <hr>
+                <hr>
 
-              <p><strong>Price:</strong> <%= product.price %> <%= product.currency %></p>
-              <p><strong>Stock Quantity:</strong> <%= product.stock_quantity %></p>
+                <p><strong>Price:</strong> <%= product.price %> <%= product.currency %></p>
+                <p><strong>Stock Quantity:</strong> <%= product.stock_quantity %></p>
 
+              </div>
             </div>
-          </div>
-          
-          <div class="has-text-centered mt-4">
-            <%= link_to "Show this product", product_path(product), class: "button is-primary is-rounded is-fullwidth" %>
+
+            <div class="has-text-centered mt-4">
+              <%= link_to "Show this product", product_path(product), class: "button is-primary is-rounded is-fullwidth" %>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
+<% end %>
 
 <% if current_user.role == true %>  
   <div class="has-text-centered mt-6">
