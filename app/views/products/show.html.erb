@@ -1,0 +1,88 @@
+<% content_for :title, @product.name %>
+
+<div class="container">
+  <% if notice.present? %>
+    <div class="notification is-success">
+      <%= notice %>
+    </div>
+  <% end %>
+
+  <section class="section">
+    <div class="columns is-centered">
+      <div class="column is-10">
+        <div class="card">
+          <div class="card-content">
+            <div class="columns">
+              <!-- Images Section -->
+              <div class="column is-half">
+                <% if @product.images.attached? %>
+                  <div class="box">
+                    <p class="title is-4 has-text-centered mb-4">Product Images</p>
+                    <div class="columns is-multiline">
+                      <% @product.images.each do |image| %>
+                        <div class="column is-6">
+                          <figure class="image is-4by3">
+                            <%= image_tag image, class: "image is-responsive has-ratio" %>
+                          </figure>
+                        </div>
+                      <% end %>
+                    </div>
+                  </div>
+                <% else %>
+                  <div class="notification is-light">
+                    <p class="has-text-centered">No images available for this product.</p>
+                  </div>
+                <% end %>
+              </div>
+
+              <!-- Product Details Section -->
+              <div class="column is-half">
+                <h1 class="title is-2 has-text-centered mb-5"><%= @product.name %></h1>
+                
+                <div class="box">
+                  <div class="field">
+                    <label class="label">Price</label>
+                    <div class="control">
+                      <div class="title is-3 has-text-success">
+                        <%= @product.price %> <%= @product.currency %>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="field mt-5">
+                    <label class="label">Stock Status</label>
+                    <div class="control">
+                      <div class="tags has-addons">
+                        <span class="tag is-medium">Available Stock:</span>
+                        <span class="tag is-medium is-success"><%= @product.stock_quantity %></span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="field mt-5">
+                    <label class="label">Description</label>
+                    <div class="content is-medium">
+                      <%= @product.description %>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Actions -->
+                <div class="field is-grouped is-grouped-centered mt-6">
+                  <%= link_to "Back to products", products_path, class: "button is-link is-medium" %>
+                  
+                  <% if current_user.role == true %>
+                    <div class="buttons">
+                      <%= link_to "Edit this product", edit_product_path(@product), class: "button is-primary is-medium" %>
+                      <%= button_to "Destroy this product", @product, method: :delete, class: "button is-danger is-medium", data: { confirm: "Are you sure?" } %>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

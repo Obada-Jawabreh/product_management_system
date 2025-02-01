@@ -1,0 +1,12 @@
+<% content_for :title, "Editing product" %>
+
+<div class="container">
+  <h1 class="title is-2 has-text-centered mb-6">Editing Product: <%= @product.name %></h1>
+
+  <%= render "form", product: @product %>
+
+  <div class="buttons is-centered mt-6">
+    <%= link_to "Show this product", @product, class: "button is-info is-rounded" %>
+    <%= link_to "Back to products", products_path, class: "button is-link is-rounded" %>
+  </div>
+</div>

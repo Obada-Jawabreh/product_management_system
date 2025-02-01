@@ -1,0 +1,82 @@
+<%= form_with(model: product, local: true) do |form| %>
+  <% if product.errors.any? %>
+    <div class="notification is-danger">
+      <ul>
+        <% product.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="columns is-multiline">
+    <!-- Product Name -->
+    <div class="column is-12-mobile is-6-tablet is-6-desktop">
+      <div class="field">
+        <label class="label">Product Name</label>
+        <div class="control">
+          <%= form.text_field :name, class: "input is-medium", placeholder: "Enter product name" %>
+        </div>
+      </div>
+    </div>
+
+    <!-- Description -->
+    <div class="column is-12-mobile is-6-tablet is-6-desktop">
+      <div class="field">
+        <label class="label">Description</label>
+        <div class="control">
+          <%= form.text_area :description, class: "textarea is-medium", placeholder: "Enter product description" %>
+        </div>
+      </div>
+    </div>
+
+    <!-- Price -->
+    <div class="column is-12-mobile is-6-tablet is-6-desktop">
+      <div class="field">
+        <label class="label">Price</label>
+        <div class="control">
+          <%= form.number_field :price, step: 0.01, class: "input is-medium", placeholder: "Enter product price" %>
+        </div>
+      </div>
+    </div>
+
+    <!-- Currency -->
+    <div class="column is-12-mobile is-6-tablet is-6-desktop">
+      <div class="field">
+        <label class="label">Currency</label>
+        <div class="control">
+          <%= form.text_field :currency, class: "input is-medium", placeholder: "Enter currency" %>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stock Quantity -->
+    <div class="column is-12-mobile is-6-tablet is-6-desktop">
+      <div class="field">
+        <label class="label">Stock Quantity</label>
+        <div class="control">
+          <%= form.number_field :stock_quantity, class: "input is-medium", placeholder: "Enter stock quantity" %>
+        </div>
+      </div>
+    </div>
+
+    <!-- Images -->
+    <div class="column is-12-mobile is-6-tablet is-6-desktop">
+      <div class="field">
+        <label class="label">Images</label>
+        <div class="control">
+          <%= form.file_field :images, multiple: true, class: "input is-medium" %>
+        </div>
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <div class="column is-12">
+      <div class="field is-grouped is-grouped-right">
+        <div class="control">
+          <%= form.submit "Save", class: "button is-primary is-rounded" %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

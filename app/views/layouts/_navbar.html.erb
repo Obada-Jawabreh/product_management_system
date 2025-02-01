@@ -1,0 +1,43 @@
+<nav class="navbar is-primary" data-controller="navbar">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="/">
+      <strong>PMS</strong>
+    </a>
+    <span class="navbar-burger burger" data-action="click->navbar#toggle" data-navbar-target="menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </span>
+  </div>
+
+  <div id="navbarMenu" class="navbar-menu" data-navbar-target="menu">
+    <div class="navbar-start">
+      <a class="navbar-item" href="/">
+        Home
+      </a>
+      <a class="navbar-item" href="/products">
+      products
+      </a>
+    </div>
+
+    <div class="navbar-center">
+      <% if user_signed_in? %>
+        <div class="navbar-item">
+          <span class="has-text-weight-semibold">Hello, <%= current_user.name %></span>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="navbar-end">
+      <% if user_signed_in? %>
+       <!-- <%= link_to 'Go to User Page', user_path(current_user), class: 'navbar-item' %> -->
+        <div class="navbar-item">
+          <%= button_to "Log Out", destroy_user_session_path, method: :delete, class: "button is-danger is-light is-rounded has-text-weight-bold" %>
+        </div>
+      <% else %>
+        <%= link_to 'Log In', new_user_session_path, class: 'navbar-item' %>
+        <%= link_to 'Sign Up', new_user_registration_path, class: 'navbar-item' %>
+      <% end %>
+    </div>
+  </div>
+</nav>

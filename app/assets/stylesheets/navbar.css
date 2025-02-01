@@ -1,0 +1,29 @@
+.navbar-burger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.navbar-burger span {
+  display: block;
+  height: 3px;
+  background-color: white;
+  border-radius: 5px;
+}
+
+.navbar-menu.is-active {
+  display: block !important;
+}
+
+.navbar-menu {
+  display: none;
+}
+
+.navbar-end {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
