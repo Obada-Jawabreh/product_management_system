@@ -1,24 +1,16 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Product Management System
 
-Things you may want to cover:
+## Description
 
-* Ruby version
+The Product Management System is a Ruby on Rails-based application designed to allow users to view products while enabling admins to manage them. The system uses PostgreSQL as the database for reliable and scalable data management.
 
-* System dependencies
+## Features
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+-   **User Authentication:** Secure login system using Devise.
+    
+-   **Admin Product Management:** Create, update, delete, and list products.
+    
+-   **File Uploads:** Manage product images using Active Storage.
+    
+-   **Responsive UI:** Styled with Bulma.
