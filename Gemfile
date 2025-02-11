@@ -64,6 +64,6 @@ end
 
 gem "devise", "~> 4.9"
 
-gem "image_processing", "~> 1.13"
+gem "image_processing", "~> 1.14"
 
 gem "mini_magick", "~> 4.13"
