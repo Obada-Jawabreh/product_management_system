@@ -66,4 +66,4 @@ gem "devise", "~> 4.9"
 
 gem "image_processing", "~> 1.13"
 
-gem "mini_magick", "~> 4.13"
+gem "mini_magick", "~> 5.2"
